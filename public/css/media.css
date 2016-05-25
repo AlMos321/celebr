@@ -1,0 +1,753 @@
+@media all and (max-width: 1240px){
+	.main-field{
+		width: 100%;
+	}
+
+	.booking .form-sidebar{
+		width: 27%;
+	}
+
+	.time-section{
+		width: 100px;
+	}
+
+	.day-nav .arrows.right{
+		right: 0;
+	}
+
+	.booking .endnotes li{
+		height: 40px;
+	}
+}
+
+@media all and (max-width: 1130px){
+	.booking .content{
+		padding: 40px 40px 0;
+	}
+
+	.booking .endnotes li{
+		width: 100%;
+		min-height: 28px;
+		height: auto;
+    	margin: 0 0 5px;
+	}
+}
+
+@media all and (max-width: 1100px){
+	.home .info{
+		width: 50%;
+	}
+
+	.home .info h2{
+		font-size: 20px;
+	}
+
+	.main-nav .reservation{
+		margin-right: 35px;
+	}
+
+	.logo{
+		margin: 0 70px 0 0;
+	}
+
+	.top-navbar{
+		text-align: center;
+		overflow: visible;
+	}
+
+	.top-navbar{
+		text-align: center;
+	}
+
+	.logo{
+		float: none;
+		display: inline-block;
+		margin: 0 10px;
+	}
+
+	.top-navbar.white .profile-link,
+	.top-navbar .profile-link{
+		padding: 0;
+		background-position: center;
+		text-indent: -993em;
+	}
+
+	.top-navbar.white .profile-link:hover,
+	.top-navbar .profile-link:hover{
+		background-position: center;
+	}
+
+	.header .main-nav{
+		position: fixed;
+		display: block;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255,255, 255, .95);
+		padding: 22% 0 0;
+		text-align: center;
+
+		-webkit-transform: scale(0);
+		-ms-transform: scale(0);
+		-o-transform: scale(0);
+		transform: scale(0);
+		opacity: 0;
+
+		-webkit-transition: .3s;
+		-o-transition: .3s;
+		transition: .3s;
+		z-index: 500;
+	}
+
+	.main-nav.active{
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
+
+		opacity: 1;
+	}
+
+	.header .main-nav li{
+		display: block;
+		margin: 0 0 40px;
+	}
+
+	.header .main-nav a{
+		font: 16px ProximaNova-Semibold;
+		color:#000;
+		text-transform: uppercase;
+		box-shadow: none;
+	}
+
+	.burger{
+		display: block;
+	}
+
+	.burger.active span,
+	.burger.active span:before,
+	.burger.active span:after{
+		background: #000;
+	}
+
+	.contacts .content p{
+		width: 80%;
+	}
+
+	.contacts .content {
+	    padding: 60px 50px 30px 50px;
+	}
+
+	.booking-list .time {
+	    width: 37%;
+	    padding-left: 20px;
+	}
+
+	.booking-list .date{
+		width: 33%;
+	}
+}
+
+@media all and (max-width: 1015px){
+
+	.main-field{
+		width: 100%;
+	}
+
+	.booking .endnotes {
+	    padding-top: 15px;
+	}
+
+	.booking .endnotes li{
+		width: 50%;
+	}
+
+	.booking .form-sidebar{
+		width: 100%;
+	}
+
+	.booking .form-sidebar > section{
+		float: right;
+		width: 50%;
+	    padding: 0 0 0 15%;
+	}
+
+	.booking .form-sidebar .info{
+		padding: 0 0 0 55px;
+	}
+
+	.booking .form-sidebar dt, 
+	.booking .form-sidebar dd{
+		width: 50%;
+	}
+}
+
+@media all and (max-width: 900px){
+	.canceled button{
+		width: 50px;
+		overflow: hidden;
+	}
+
+	.canceled{
+		width: 55px;
+	}
+
+	.profile-notes .thead{
+		padding-right: 70px;
+	}
+}
+
+@media all and (max-width: 800px){
+	.booking .form-sidebar > section {
+	    padding: 0 0 0 10%;
+	}
+
+	.booking .endnotes li{
+		padding: 0 20px 0 40px;
+	}
+
+	.day-nav .arrows.right {
+	    right: -10px;
+	}
+}
+
+@media all and (max-width: 767px){
+
+	.burger{
+		left: 30px;
+	}
+
+	.home .info{
+		width: 100%;
+		background: rgba(0,0,0, .6);
+		opacity: 1;
+	    padding: 34% 90px 0 30px;
+	}
+
+	.rooms .side-nav .active a:after{
+		width: 60px;
+	}
+
+	.rooms #maximage:after{
+		height: 100%;
+		background: rgba(0, 0, 0, .2);
+	}
+
+	.logo{
+		-webkit-transform: translate(0);
+		-ms-transform: translate(0);
+		-o-transform: translate(0);
+		transform: translate(0);
+	}
+
+	.modal,
+	.enter-modal {
+		padding:0 20px 30px;
+	}
+
+	.modal .cls-btn{
+		right: -7px;
+		font-size: 35px;
+	}
+
+	.contacts .content{
+		padding: 20px 0 0;
+	}
+
+	.contacts .content p{
+		width: 100%;
+		color: #565656;
+	}
+
+	.contacts .content p,
+	.contacts-block{
+		font-size: 14px;
+		padding: 0 30px;
+	}
+
+	.contacts .contacts-block p{
+		padding: 0;
+	}
+	
+	.contacts-block,
+	.map{
+		width: 100%;
+		margin: 0 0 20px;
+	}
+
+	.footer{
+		padding: 10px 30px;
+	}
+
+	.booking .endnotes{
+		display: none;
+	}
+
+	.booking .form-sidebar > section {
+	    padding: 0 5% 0 0;
+	}
+
+	.booking .content {
+    	padding: 20px 10px 0 20px;
+	}
+}
+
+@media all and (max-width: 700px){
+	.booking input[type="radio"]+label.btn{
+		padding: 0 20px;
+		height: 37px;
+		line-height: 31px;
+	}
+}
+
+@media all and (max-width: 640px){
+
+	/*Cabinet pages*/
+	.profile-nav li{
+		padding: 10px 25px;
+	}
+
+	.modal{
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.picker-field{
+		padding: 0 25px;
+	}
+
+	.day-nav .arrows.right {
+	    right: -22px;
+	}
+}
+
+@media all and (max-width: 560px){
+	.booking input[type="radio"]+label.btn{
+		padding: 0 15px;
+	}
+
+	.booking form .btns-list li:last-child{
+		margin: 0;
+	}
+
+	.time-section li,
+	.days-field > ul > li li{
+		height: 32px;
+	}
+
+	.booking .form-sidebar > section{
+		float: none;
+		width: 100%;
+	}
+
+	.booking .form-sidebar .info{
+		padding: 0;
+		margin: 0 0 30px;
+	}
+}
+
+@media all and (max-width: 540px){
+	.profile-notes .thead{
+		display: none;
+	}
+
+	.table .row{
+	    max-width: 140px;
+   		margin: 0 auto 30px;
+	}
+
+	.table .tbody .col{
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin: 0 0 15px;
+	}
+
+	.time li,
+	.date{
+		font-size: 14px;
+	}
+
+	.tbody .cost{
+		font: 14px ProximaNova-Light;
+	}
+
+	.canceled button {
+	    width: auto;
+	    overflow: hidden;
+	    text-align: left;
+	    font-size: 11px;
+	}
+
+	.profile-notes .table{
+		padding: 0 0 30px;
+	}
+
+	.booking input[type="radio"]+label.btn{
+		font-size: 12px;
+	}
+}
+
+@media all and (max-width: 480px){
+	.top-navbar .profile-link{
+	    position: initial;
+	}
+
+	.content.personal-data{
+		width: 100%;
+	}
+
+	.profile-nav li {
+	    padding: 10px 10px;
+	}
+
+	.burger{
+		top: 34px;
+	}
+
+	.enter-modal form .btns-list .btn{
+		padding: 0 30px;
+	}
+
+	.enter-modal .social-list li{
+		margin: 0 10px;
+	}
+
+	.delete-note .btns-list .btn{
+		width: 110px;
+	}
+
+	.modal.delete-note p{
+		width: 100%;
+	}
+
+	.time-section{
+		width: 60px;
+	}
+
+	.time-section li{
+	    line-height: 1.2;
+   		padding: 3px 5px 0 11px;
+    	text-align: left;
+	}
+}
+
+@media all and (max-width: 440px){
+	.booking .content {
+	    padding: 20px 10px 0 20px;
+	}
+
+	.booking form .btns-list li {
+	    display: block;
+	    margin: 0 0 20px;
+	}
+
+	.day-nav li span{
+		font-size: 14px;
+	}
+
+	.time-section{
+		padding: 46px 0 0;
+	}
+}
+
+@media all and (max-width: 420px){
+
+	.profile-nav li a{
+		font-size: 11px;
+	}
+
+	.enter-modal form .btns-list .btn{
+		padding: 0 20px;
+	}	
+
+	.booking .content{
+		padding: 0 0 0 10px;
+	}
+
+	.days-field > ul > li li,
+	.day-nav li{
+		width: 12%;
+	}
+}
+
+@media all and (max-width: 380px){
+	.enter-modal form .btns-list .btn{
+		padding: 0 15px;
+	}	
+
+	.enter-modal .social-list i{
+		margin: 0 6px 0 0;
+	}
+
+	.delete-note .btns-list .btn{
+		width: 110px;
+	}
+}
+
+@media all and (max-width: 480px) and (orientation: portrait){
+
+	.top-navbar{
+		padding: 30px;
+	}
+
+    .main-nav, .profile-link{
+		-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	    -o-transform: translateY(0);
+	    transform: translateY(0);
+	}
+
+	.logo{
+		margin: 12px -40px 0 0;
+    	width: 120px;
+   		height: 23px;
+	}
+
+	.top-navbar{
+		text-align: center;
+	}
+
+	.top-navbar .profile-link{
+		padding: 0;
+		text-indent: -999em;
+		background-position: center;
+	}
+
+	.top-navbar.white .profile-link{
+		position: initial;
+		padding: 0;
+		background-position: center;
+	}
+
+	.home .info{
+	    padding-top: 42%;
+    	padding-right: 25%;
+	}
+
+	.home .info h2{
+		font-size: 18px;
+	}
+
+	.home .info p{
+		font-size: 13px;
+	}
+
+	.slide-page{
+		width: 100%;
+		padding: 30% 40px;
+		background: rgba(255, 255, 255, .95);
+	}
+	
+	.rooms .slider-pagination{
+		width: 100%;
+		text-align: center;
+		left: 0;
+		top: auto;
+		right: auto;
+		bottom: 50px;
+	}
+
+	.rooms .slider-pagination li{
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	.footer{
+		padding: 10px 30px;
+	}
+
+	.rooms .sidebar{
+		padding: 160px 0 20px 30px;
+	}
+
+	.rooms .pager-nav strong{
+		font-size: 32px;
+		padding: 0 25px;
+	}
+
+	.rooms .pager-nav strong span{
+		font-size: 60px;
+	}
+
+	.pager-nav{
+		margin: 0 0 20px;
+	}
+
+	.back{
+	    position: absolute;
+	    display: block;
+	    top: 10%;
+	    left: 40px;
+	    font-size: 18px;
+	}
+}
+
+@media all and (max-width: 420px) and (orientation: portrait){
+	.header .main-nav{
+		padding-top: 35%;
+	}
+
+	.slide-page dd,
+	.slide-page dt{
+		float: none;
+		width: 100%;
+	}
+
+	.slide-page dt{
+		margin: 0 0 15px;
+	}
+
+	.enter-modal footer a{
+		font-size: 11px;
+	}
+
+	.booking-modal .btn{
+		font-size: 12px;
+	}
+}
+
+
+@media all and (max-width: 360px) and (orientation: portrait){
+
+	.home .info {
+		padding: 40% 50px 0 30px;
+	}
+	
+	.home .info h2{
+		font-size: 14px;
+	}
+
+	.home .info p{
+		font-size: 12px;
+	}
+	
+	.home .slider-pagination{
+		display: none;
+	}
+
+}
+
+@media all and (max-width: 320px) and (orientation: portrait){
+	.rooms .sidebar{
+		padding-top: 120px;
+	}
+}
+
+@media all and (max-width: 767px) and (orientation: landscape){
+	.header .main-nav{
+		padding-top: 15%;
+	}
+
+	.home .info{
+	    padding: 18% 22% 0 5%;
+	}
+ 
+	.home .info h2{
+		font-size: 17px;
+	}
+
+	.lang-nav a {
+		font-size: 14px;
+	}
+
+	.social .fa{
+		font-size: 16px;	
+	}
+
+	.rooms .sidebar{
+		padding: 125px 20px 0 50px;
+	}
+
+	.pager-nav {
+	    margin: 0 0 30px;
+	}
+	
+	.slide-page{
+		padding: 100px 25px 70px 35px;
+	}
+
+	.slide-page dt,
+	.slide-page dd{
+		width: 100%;
+		margin: 0 0 15px;
+	}
+
+	.slide-page dd{
+		margin: 0 0 25px;
+	}
+
+	.content .slide-page .note{
+		font-size: 12px;
+	}
+	
+	.slide-page p,
+	.slide-page dd p,
+	.slide-page dd li{
+		font-size: 13px;
+	}
+
+	.booking-modal p{
+		font-size: 12px;
+	}
+}
+
+@media all and (max-width: 670px) and (orientation: landscape){
+	.home .info h2 {
+	    font-size: 15px;
+	}
+
+	.home .info p{
+		font-size: 13px;
+	}
+}
+
+@media all and (max-width: 570px) and (orientation: landscape){
+	.top-navbar{
+		padding: 40px 35px;
+	}
+
+	.logo{
+	    width: 150px;
+    	height: 30px;
+	}
+
+	.home .info h2{
+		font-size: 15px;
+	}
+
+	.home .info p{
+		font-size: 12px;
+	}
+
+	.slider-pagination{
+		right: 20px;
+	}
+
+	.home .info {
+	    padding: 20% 13% 0 9%;
+	}
+
+	.rooms .slide-page{
+		width: 65%;
+	}
+}
+
+@media all and (max-width: 480px) and (orientation: landscape){
+	.home .info h2{
+		font-size: 13px;
+	}
+
+	.home .info p{
+		font-size: 11px;
+	}
+	
+	.slide-page p, 
+	.slide-page dd p, 
+	.slide-page dd li{
+		font-size: 12px;	
+	}
+
+}
+
