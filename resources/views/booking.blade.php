@@ -23,8 +23,13 @@
                     <h2>Вибір послуги</h2>
                     <select class="form-control" id="hol_type" name="hol_type">
                         @foreach($holidays as $hol)
-                        <option id="{{$hol->id}}">{{$hol->name}}</option>
+                        <option id="{{$hol->id}}" value="{{$hol->id}}">{{$hol->name}}</option>
                         @endforeach
+                    </select>
+
+                    <h3>Рекомендовані заклади</h3>
+                    <select class="form-control" id="shop_type" name="shop_type">
+
                     </select>
 
                 </fieldset>
@@ -40,28 +45,6 @@
                             <li>Зміна 1</li>
                             <li>Зміна 2</li>
                             <li>Зміна 3</li>
-                           {{-- <li>02:00 - 03:00</li>
-                            <li>03:00 - 04:00</li>
-                            <li>04:00 - 05:00</li>
-                            <li>05:00 - 06:00</li>
-                            <li>06:00 - 07:00</li>
-                            <li>07:00 - 08:00</li>
-                            <li>08:00 - 09:00</li>
-                            <li>09:00 - 10:00</li>
-                            <li>10:00 - 11:00</li>
-                            <li>11:00 - 12:00</li>
-                            <li>12:00 - 13:00</li>
-                            <li>13:00 - 14:00</li>
-                            <li>14:00 - 15:00</li>
-                            <li>15:00 - 16:00</li>
-                            <li>16:00 - 17:00</li>
-                            <li>17:00 - 18:00</li>
-                            <li>18:00 - 19:00</li>
-                            <li>19:00 - 20:00</li>
-                            <li>20:00 - 21:00</li>
-                            <li>21:00 - 22:00</li>
-                            <li>22:00 - 23:00</li>
-                            <li>23:00 - 24:00</li>--}}
                         </ul>
                         <section class="picker-field">
 
@@ -141,385 +124,6 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                   {{-- <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-22"><label
-                                                        for="checkbox-22"></label></li>
-                                            <li><input type="checkbox" id="checkbox-23"><label
-                                                        for="checkbox-23"></label></li>
-                                            <li><input type="checkbox" id="checkbox-24"><label
-                                                        for="checkbox-24"></label></li>
-                                            <li><input type="checkbox" id="checkbox-25"><label
-                                                        for="checkbox-25"></label></li>
-                                            <li><input type="checkbox" id="checkbox-26"><label
-                                                        for="checkbox-26"></label></li>
-                                            <li><input type="checkbox" id="checkbox-27"><label
-                                                        for="checkbox-27"></label></li>
-                                            <li><input type="checkbox" id="checkbox-28"><label
-                                                        for="checkbox-28"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-29"><label
-                                                        for="checkbox-29"></label></li>
-                                            <li><input type="checkbox" id="checkbox-30"><label
-                                                        for="checkbox-30"></label></li>
-                                            <li><input type="checkbox" id="checkbox-31"><label
-                                                        for="checkbox-31"></label></li>
-                                            <li><input type="checkbox" id="checkbox-32"><label
-                                                        for="checkbox-32"></label></li>
-                                            <li><input type="checkbox" id="checkbox-33"><label
-                                                        for="checkbox-33"></label></li>
-                                            <li><input type="checkbox" id="checkbox-34"><label
-                                                        for="checkbox-34"></label></li>
-                                            <li><input type="checkbox" id="checkbox-35"><label
-                                                        for="checkbox-35"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-36"><label
-                                                        for="checkbox-36"></label></li>
-                                            <li><input type="checkbox" id="checkbox-37"><label
-                                                        for="checkbox-37"></label></li>
-                                            <li><input type="checkbox" id="checkbox-38"><label
-                                                        for="checkbox-38"></label></li>
-                                            <li><input type="checkbox" id="checkbox-39"><label
-                                                        for="checkbox-39"></label></li>
-                                            <li><input type="checkbox" id="checkbox-40"><label
-                                                        for="checkbox-40"></label></li>
-                                            <li><input type="checkbox" id="checkbox-41"><label
-                                                        for="checkbox-41"></label></li>
-                                            <li><input type="checkbox" id="checkbox-42"><label
-                                                        for="checkbox-42"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-43"><label
-                                                        for="checkbox-43"></label></li>
-                                            <li><input type="checkbox" id="checkbox-44"><label
-                                                        for="checkbox-44"></label></li>
-                                            <li><input type="checkbox" id="checkbox-45"><label
-                                                        for="checkbox-45"></label></li>
-                                            <li><input type="checkbox" id="checkbox-46"><label
-                                                        for="checkbox-46"></label></li>
-                                            <li><input type="checkbox" id="checkbox-47"><label
-                                                        for="checkbox-47"></label></li>
-                                            <li><input type="checkbox" id="checkbox-48"><label
-                                                        for="checkbox-48"></label></li>
-                                            <li><input type="checkbox" id="checkbox-49"><label
-                                                        for="checkbox-49"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-50"><label
-                                                        for="checkbox-50"></label></li>
-                                            <li><input type="checkbox" id="checkbox-51"><label
-                                                        for="checkbox-51"></label></li>
-                                            <li><input type="checkbox" id="checkbox-52"><label
-                                                        for="checkbox-52"></label></li>
-                                            <li><input type="checkbox" id="checkbox-53"><label
-                                                        for="checkbox-53"></label></li>
-                                            <li><input type="checkbox" id="checkbox-54"><label
-                                                        for="checkbox-54"></label></li>
-                                            <li><input type="checkbox" id="checkbox-55"><label
-                                                        for="checkbox-55"></label></li>
-                                            <li><input type="checkbox" id="checkbox-56"><label
-                                                        for="checkbox-56"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-57"><label
-                                                        for="checkbox-57"></label></li>
-                                            <li><input type="checkbox" id="checkbox-58"><label
-                                                        for="checkbox-58"></label></li>
-                                            <li><input type="checkbox" id="checkbox-59"><label
-                                                        for="checkbox-59"></label></li>
-                                            <li><input type="checkbox" id="checkbox-60"><label
-                                                        for="checkbox-60"></label></li>
-                                            <li><input type="checkbox" id="checkbox-61"><label
-                                                        for="checkbox-61"></label></li>
-                                            <li><input type="checkbox" id="checkbox-62"><label
-                                                        for="checkbox-62"></label></li>
-                                            <li><input type="checkbox" id="checkbox-63"><label
-                                                        for="checkbox-63"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-64"><label
-                                                        for="checkbox-64"></label></li>
-                                            <li><input type="checkbox" id="checkbox-65"><label
-                                                        for="checkbox-65"></label></li>
-                                            <li><input type="checkbox" id="checkbox-66"><label
-                                                        for="checkbox-66"></label></li>
-                                            <li><input type="checkbox" id="checkbox-67"><label
-                                                        for="checkbox-67"></label></li>
-                                            <li><input type="checkbox" id="checkbox-68"><label
-                                                        for="checkbox-68"></label></li>
-                                            <li><input type="checkbox" id="checkbox-69"><label
-                                                        for="checkbox-69"></label></li>
-                                            <li><input type="checkbox" id="checkbox-70"><label
-                                                        for="checkbox-70"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-71"><label
-                                                        for="checkbox-71"></label></li>
-                                            <li><input type="checkbox" id="checkbox-72"><label
-                                                        for="checkbox-72"></label></li>
-                                            <li><input type="checkbox" id="checkbox-73"><label
-                                                        for="checkbox-73"></label></li>
-                                            <li><input type="checkbox" id="checkbox-74"><label
-                                                        for="checkbox-74"></label></li>
-                                            <li><input type="checkbox" id="checkbox-75"><label
-                                                        for="checkbox-75"></label></li>
-                                            <li><input type="checkbox" id="checkbox-76"><label
-                                                        for="checkbox-76"></label></li>
-                                            <li><input type="checkbox" id="checkbox-77"><label
-                                                        for="checkbox-77"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-78"><label
-                                                        for="checkbox-78"></label></li>
-                                            <li><input type="checkbox" id="checkbox-79"><label
-                                                        for="checkbox-79"></label></li>
-                                            <li><input type="checkbox" id="checkbox-80"><label
-                                                        for="checkbox-80"></label></li>
-                                            <li><input type="checkbox" id="checkbox-81"><label
-                                                        for="checkbox-81"></label></li>
-                                            <li><input type="checkbox" id="checkbox-82"><label
-                                                        for="checkbox-82"></label></li>
-                                            <li><input type="checkbox" id="checkbox-83"><label
-                                                        for="checkbox-83"></label></li>
-                                            <li><input type="checkbox" id="checkbox-84"><label
-                                                        for="checkbox-84"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-85"><label
-                                                        for="checkbox-85"></label></li>
-                                            <li><input type="checkbox" id="checkbox-86"><label
-                                                        for="checkbox-86"></label></li>
-                                            <li><input type="checkbox" id="checkbox-87"><label
-                                                        for="checkbox-87"></label></li>
-                                            <li><input type="checkbox" id="checkbox-88"><label
-                                                        for="checkbox-88"></label></li>
-                                            <li><input type="checkbox" id="checkbox-89"><label
-                                                        for="checkbox-89"></label></li>
-                                            <li><input type="checkbox" id="checkbox-90"><label
-                                                        for="checkbox-90"></label></li>
-                                            <li><input type="checkbox" id="checkbox-91"><label
-                                                        for="checkbox-91"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-92"><label
-                                                        for="checkbox-92"></label></li>
-                                            <li><input type="checkbox" id="checkbox-93"><label
-                                                        for="checkbox-93"></label></li>
-                                            <li><input type="checkbox" id="checkbox-94"><label
-                                                        for="checkbox-94"></label></li>
-                                            <li><input type="checkbox" id="checkbox-95"><label
-                                                        for="checkbox-95"></label></li>
-                                            <li><input type="checkbox" id="checkbox-96"><label
-                                                        for="checkbox-96"></label></li>
-                                            <li><input type="checkbox" id="checkbox-97"><label
-                                                        for="checkbox-97"></label></li>
-                                            <li><input type="checkbox" id="checkbox-98"><label
-                                                        for="checkbox-98"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-99"><label
-                                                        for="checkbox-99"></label></li>
-                                            <li><input type="checkbox" id="checkbox-100"><label
-                                                        for="checkbox-100"></label></li>
-                                            <li><input type="checkbox" id="checkbox-101"><label
-                                                        for="checkbox-101"></label></li>
-                                            <li><input type="checkbox" id="checkbox-102"><label
-                                                        for="checkbox-102"></label></li>
-                                            <li><input type="checkbox" id="checkbox-103"><label
-                                                        for="checkbox-103"></label></li>
-                                            <li><input type="checkbox" id="checkbox-104"><label
-                                                        for="checkbox-104"></label></li>
-                                            <li><input type="checkbox" id="checkbox-105"><label
-                                                        for="checkbox-105"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-106"><label
-                                                        for="checkbox-106"></label></li>
-                                            <li><input type="checkbox" id="checkbox-107"><label
-                                                        for="checkbox-107"></label></li>
-                                            <li><input type="checkbox" id="checkbox-108"><label
-                                                        for="checkbox-108"></label></li>
-                                            <li><input type="checkbox" id="checkbox-109"><label
-                                                        for="checkbox-109"></label></li>
-                                            <li><input type="checkbox" id="checkbox-110"><label
-                                                        for="checkbox-110"></label></li>
-                                            <li><input type="checkbox" id="checkbox-111"><label
-                                                        for="checkbox-111"></label></li>
-                                            <li><input type="checkbox" id="checkbox-112"><label
-                                                        for="checkbox-112"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-113"><label
-                                                        for="checkbox-113"></label></li>
-                                            <li><input type="checkbox" id="checkbox-114"><label
-                                                        for="checkbox-114"></label></li>
-                                            <li><input type="checkbox" id="checkbox-115"><label
-                                                        for="checkbox-115"></label></li>
-                                            <li><input type="checkbox" id="checkbox-116"><label
-                                                        for="checkbox-116"></label></li>
-                                            <li><input type="checkbox" id="checkbox-117"><label
-                                                        for="checkbox-117"></label></li>
-                                            <li><input type="checkbox" id="checkbox-118"><label
-                                                        for="checkbox-118"></label></li>
-                                            <li><input type="checkbox" id="checkbox-119"><label
-                                                        for="checkbox-119"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-120"><label
-                                                        for="checkbox-120"></label></li>
-                                            <li><input type="checkbox" id="checkbox-121"><label
-                                                        for="checkbox-121"></label></li>
-                                            <li><input type="checkbox" id="checkbox-122"><label
-                                                        for="checkbox-122"></label></li>
-                                            <li><input type="checkbox" id="checkbox-123"><label
-                                                        for="checkbox-123"></label></li>
-                                            <li><input type="checkbox" id="checkbox-124"><label
-                                                        for="checkbox-124"></label></li>
-                                            <li><input type="checkbox" id="checkbox-125"><label
-                                                        for="checkbox-125"></label></li>
-                                            <li><input type="checkbox" id="checkbox-126"><label
-                                                        for="checkbox-126"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-127"><label
-                                                        for="checkbox-127"></label></li>
-                                            <li><input type="checkbox" id="checkbox-128"><label
-                                                        for="checkbox-128"></label></li>
-                                            <li><input type="checkbox" id="checkbox-129"><label
-                                                        for="checkbox-129"></label></li>
-                                            <li><input type="checkbox" id="checkbox-130"><label
-                                                        for="checkbox-130"></label></li>
-                                            <li><input type="checkbox" id="checkbox-131"><label
-                                                        for="checkbox-131"></label></li>
-                                            <li><input type="checkbox" id="checkbox-132"><label
-                                                        for="checkbox-132"></label></li>
-                                            <li><input type="checkbox" id="checkbox-133"><label
-                                                        for="checkbox-133"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-134"><label
-                                                        for="checkbox-134"></label></li>
-                                            <li><input type="checkbox" id="checkbox-135"><label
-                                                        for="checkbox-135"></label></li>
-                                            <li><input type="checkbox" id="checkbox-136"><label
-                                                        for="checkbox-136"></label></li>
-                                            <li><input type="checkbox" id="checkbox-137"><label
-                                                        for="checkbox-137"></label></li>
-                                            <li><input type="checkbox" id="checkbox-138"><label
-                                                        for="checkbox-138"></label></li>
-                                            <li><input type="checkbox" id="checkbox-139"><label
-                                                        for="checkbox-139"></label></li>
-                                            <li><input type="checkbox" id="checkbox-140"><label
-                                                        for="checkbox-140"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-141"><label
-                                                        for="checkbox-141"></label></li>
-                                            <li><input type="checkbox" id="checkbox-142"><label
-                                                        for="checkbox-142"></label></li>
-                                            <li><input type="checkbox" id="checkbox-143"><label
-                                                        for="checkbox-143"></label></li>
-                                            <li><input type="checkbox" id="checkbox-144"><label
-                                                        for="checkbox-144"></label></li>
-                                            <li><input type="checkbox" id="checkbox-145"><label
-                                                        for="checkbox-145"></label></li>
-                                            <li><input type="checkbox" id="checkbox-146"><label
-                                                        for="checkbox-146"></label></li>
-                                            <li><input type="checkbox" id="checkbox-147"><label
-                                                        for="checkbox-147"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-148"><label
-                                                        for="checkbox-148"></label></li>
-                                            <li><input type="checkbox" id="checkbox-149"><label
-                                                        for="checkbox-149"></label></li>
-                                            <li><input type="checkbox" id="checkbox-150"><label
-                                                        for="checkbox-150"></label></li>
-                                            <li><input type="checkbox" id="checkbox-151"><label
-                                                        for="checkbox-151"></label></li>
-                                            <li><input type="checkbox" id="checkbox-152"><label
-                                                        for="checkbox-152"></label></li>
-                                            <li><input type="checkbox" id="checkbox-153"><label
-                                                        for="checkbox-153"></label></li>
-                                            <li><input type="checkbox" id="checkbox-154"><label
-                                                        for="checkbox-154"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-155"><label
-                                                        for="checkbox-155"></label></li>
-                                            <li><input type="checkbox" id="checkbox-156"><label
-                                                        for="checkbox-156"></label></li>
-                                            <li><input type="checkbox" id="checkbox-157"><label
-                                                        for="checkbox-157"></label></li>
-                                            <li><input type="checkbox" id="checkbox-158"><label
-                                                        for="checkbox-158"></label></li>
-                                            <li><input type="checkbox" id="checkbox-159"><label
-                                                        for="checkbox-159"></label></li>
-                                            <li><input type="checkbox" id="checkbox-160"><label
-                                                        for="checkbox-160"></label></li>
-                                            <li><input type="checkbox" id="checkbox-161"><label
-                                                        for="checkbox-161"></label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><input type="checkbox" id="checkbox-162"><label
-                                                        for="checkbox-162"></label></li>
-                                            <li><input type="checkbox" id="checkbox-163"><label
-                                                        for="checkbox-163"></label></li>
-                                            <li><input type="checkbox" id="checkbox-164"><label
-                                                        for="checkbox-164"></label></li>
-                                            <li><input type="checkbox" id="checkbox-165"><label
-                                                        for="checkbox-165"></label></li>
-                                            <li><input type="checkbox" id="checkbox-166"><label
-                                                        for="checkbox-166"></label></li>
-                                            <li><input type="checkbox" id="checkbox-167"><label
-                                                        for="checkbox-167"></label></li>
-                                            <li><input type="checkbox" id="checkbox-168"><label
-                                                        for="checkbox-168"></label></li>
-                                        </ul>
-                                    </li>
-                                </ul>--}}
                             </div>
                             <!-- days-field -->
                         </section>
@@ -535,23 +139,21 @@
                     @endif
                     <section class="contact-form" style="width: 50%; margin: 0 auto">
                         <ul>
-                           {{-- @if(Auth::check())--}}
+
                                 <div class="error error-name hide"></div>
-                                <li><label for="">Имя заказчика</label><input value="@if(Auth::check()){{Auth::User()->name}}@endif" class="input-style" name="name" type="text">
+                                <li><label for="">Ім'я заказчика</label><input value="@if(Auth::check()){{Auth::User()->name}}@endif" class="input-style" name="name" type="text">
                                 </li>
-                           {{-- @endif--}}
-                          {{--  @if(Auth::check() || empty(Auth::User()->phone) )--}}
+
                                 <div class="error error-phone hide"></div>
                                 <li><label for="">Телефон заказчика</label><input class="input-style" value="@if(Auth::check()){{Auth::User()->phone}}@endif" name="phone"
                                                                                    type="text"></li>
-                          {{--  @endif--}}
-                           {{-- @if(Auth::check() || empty(Auth::User()->email) )--}}
+
                                 <div class="error error-email hide"></div>
                                 <li><label for="">Email</label><input class="input-style" value="@if(Auth::check()){{Auth::User()->email}}@endif" name="email" type="email">
                                 </li>
-                          {{--  @endif--}}
+
                             <div class="error error-description hide"></div>
-                            <li><label for="">Пожелания заказчика</label><textarea class="input-style" name="description" id=""
+                            <li><label for="">Побажання</label><textarea class="input-style" name="description" id=""
                                                                           cols="30" rows="10"></textarea></li>
                         </ul>
 
@@ -570,24 +172,6 @@
         </form>
 @endsection
 
-
-
-{{--<div class="modal booking-modal">
-    <header>
-        <h4>Время успешно забронировано!</h4>
-        <a href="#" class="cls-btn">&times;</a>
-    </header>
-    <section>
-        <p>Заказ добавлен в список <br> </p>
-    </section>
-    <footer>
-        @if(Auth::check())
-            <a href="{{url('/admin/orders')}}" class="btn" type="submit">Перейти в личный кабинет</a>
-        @else
-            <a href="{{url('/')}}" class="btn" type="submit">Перейти на главную страницу</a>
-        @endif
-    </footer>
-</div>--}}
 <!--/booking-modal-->
 
 @section('js')
@@ -608,8 +192,9 @@
                 data: {_token: token, type: type},
                 success: function (data, textStatus) {
                     $('#hol_type').empty();
+                    $('#hol_type').append('<option value="0">...</option>');
                     $.each(data, function(index, value){
-                            $('#hol_type').append('<option value="'+value.id+'">'+value.name+'</option>')
+                            $('#hol_type').append('<option value="'+value.id+'">'+value.name+'</option>');
                     });
                 }
             });
@@ -617,8 +202,24 @@
 
         $('#hol_type').on('change', function () {
             HolType = $(this).val();
+            getShopByHolidayId(HolType)
         });
-        //
+
+        function getShopByHolidayId(id) {
+            $.ajax({
+                url: '/get/shop/holiday',
+                type: "post",
+                data: {_token: token, id: id},
+                success: function (data, textStatus) {
+                    $('#shop_type').empty();
+                    $('#shop_type').append('<option value="0">...</option>');
+                    $.each(data, function(index, value){
+                        $('#shop_type').append('<option value="'+value.id+'">'+value.name+'</option>');
+                    });
+                }
+            });
+        }
+
 
     </script>
 

@@ -34,6 +34,7 @@ class Order extends Model
         'phone',
         'is_paid',
         'str_text',
+        'shop'
     ];
 
     protected $sluggable = [

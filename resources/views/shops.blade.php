@@ -33,32 +33,30 @@
 
     <div class="content">
         @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
-            <button type="button" id="add_employe" class="btn btn-primary">Додати працівника</button>
+            <button type="button" id="add_employe" class="btn btn-primary">Додати заклад</button>
         @endif
         <table class="table" style="background-color: #05B2D2">
-            <caption>Таблиця працівників.</caption>
+            <caption>Таблиця закладів.</caption>
             <thead>
             <tr>
-                <th>Ім'я</th>
-                <th>Телефон</th>
-                <th>Email</th>
-                <th>Зарплата</th>
+                <th>Назва</th>
+                <th>Адреса</th>
+                <th>Опис</th>
                 <th>Дія</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($employes as $empl)
-            <tr>
-                <td style="cursor: pointer;" onclick="changeEmpl({{$empl->id}})">{{$empl->name}}</td>
-                <td>{{$empl->phone}}</td>
-                <td>{{$empl->email}}</td>
-                <td>{{$empl->salary}}</td>
-                <td onclick="dellEmpl({{$empl->id}})">
-                    @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
-                        <span style="cursor: pointer;" class="glyphicon glyphicon-remove"></span>
-                    @endif
-                </td>
-            </tr>
+            @foreach($shops as $s)
+                <tr>
+                    <td style="cursor: pointer;" onclick="changeShop({{$s->id}})">{{$s->name}}</td>
+                    <td>{{$s->addres}}</td>
+                    <td>{{$s->description}}</td>
+                    <td onclick="dellShop({{$s->id}})">
+                        @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
+                            <span style="cursor: pointer;" class="glyphicon glyphicon-remove"></span>
+                        @endif
+                    </td>
+                </tr>
             @endforeach
             </tbody>
         </table>
@@ -98,32 +96,28 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Форма редагування працівників</h4>
+                <h4 class="modal-title" id="myModalLabel">Форма редагування закладів</h4>
             </div>
             <div class="modal-body">
-                <form class="form-group" method="post" id="submit-post" action="/create/employe">
+                <form class="form-group" method="post" id="submit-post" action="/create/shop">
                     {!! csrf_field() !!}
                     <input type="hidden" id="id" name="id">
                     <div class="form-group">
-                        <label>Ім'я</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Ім'я">
+                        <label>Назва</label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="form-group">
-                        <label>Посада</label>
-                        <select class="form-control" id="type_id" name="type_id">
+                        <label>Для свята</label>
+                        <select class="form-control" id="hol_id" name="hol_id">
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        <label>Адреса</label>
+                        <input type="text" class="form-control" id="addres" name="addres">
                     </div>
                     <div class="form-group">
-                        <label>Телефон</label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Телефон">
-                    </div>
-                    <div class="form-group">
-                        <label>Заробітна плата</label>
-                        <input type="text" class="form-control" id="salary" name="salary" placeholder="Плата">
+                        <label>Опис</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
                     @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
                         <button type="submit" class="btn btn-default">Сохранить</button>
@@ -152,7 +146,7 @@
     });
 
     $('#add_employe').on('click', function () {
-        loadCategories();
+        loadHolidays();
         $('#submit-post').trigger('reset');
         $('#myModalCategory').modal('show');
     });
@@ -163,7 +157,7 @@
         var url = $(this).attr('action');
         var data = $(this).serialize();
         $.ajax({
-            url: '/create/employe',
+            url: '/create/shop',
             type: "post",
             data: data,
             success: function (data, textStatus) {
@@ -172,45 +166,44 @@
         });
     });
 
-    function loadCategories(selectedOpt) {
+    function loadHolidays(selectedOpt) {
         $.ajax({
-            url: '/load/categories',
+            url: '/load/holidays',
             type: "post",
             data: {_token: token},
             success: function (data) {
                 $.each(data, function(index, value){
                     if(selectedOpt == value.id){
-                        $('#type_id').append('<option selected value="'+value.id+'">'+value.name+'</option>')
+                        $('#hol_id').append('<option selected value="'+value.id+'">'+value.name+'</option>')
                     } else {
-                        $('#type_id').append('<option value="'+value.id+'">'+value.name+'</option>')
+                        $('#hol_id').append('<option value="'+value.id+'">'+value.name+'</option>')
                     }
                 });
             }
         });
     }
 
-    function changeEmpl(id) {
+    function changeShop(id) {
         $.ajax({
-            url: '/change/employe',
+            url: '/change/shop',
             type: "post",
             data: {_token: token, id: id},
             success: function (data, textStatus) {
                 $('#submit-post').trigger('reset');
-                $("#type_id").empty();
+                $("#hol_id").empty();
                 $('input#id').val(data.id);
                 $('input#name').val(data.name);
-                $('input#email').val(data.email);
-                $('input#phone').val(data.phone);
-                $('input#salary').val(data.salary);
+                $('#description').val(data.description);
+                $('input#addres').val(data.addres);
                 $('#myModalCategory').modal('show');
-                loadCategories(data.cat_id);
+                loadHolidays(data.hol_id);
             }
         });
     }
 
-    function dellEmpl(id) {
+    function dellShop(id) {
         $.ajax({
-            url: '/delete/employe',
+            url: '/delete/shop',
             type: "post",
             data: {_token: token, id: id},
             success: function (data, textStatus) {
@@ -219,6 +212,7 @@
         });
     }
 </script>
+
 
 </body>
 </html>

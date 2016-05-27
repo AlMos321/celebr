@@ -23,7 +23,7 @@ class BookingController extends Controller
      */
     public function __construct()
     {
-       /* $this->middleware('guest');*/
+        /* $this->middleware('guest');*/
     }
 
     /**
@@ -90,7 +90,7 @@ class BookingController extends Controller
                 'name' => 'required',
                 'description' => 'required|max:255',
                 'phone' => 'required|phone:AUTO,UA',
-               /* 'agree' => 'required',*/
+                /* 'agree' => 'required',*/
                 'type' => 'required',
                 'room' => 'required',
                 'email' => 'required',
@@ -121,11 +121,11 @@ class BookingController extends Controller
         $strTime = "";
         $totalSumm = 0;
         foreach ($timeOrder as $val) {
-            $strTime = $strTime . date('Y-m-d: H ', $val) . "-" . date('H', strtotime("+1 hour", $val)) . "<br>";
+            $strTime = $strTime . date('Y-m-d: H ', $val) /*. "-" . date('H', strtotime("+1 hour", $val)) */ . "<br>";
             $totalSumm += $this->getTimeCost($val, $request->input('type'));
         }
 
-        if(isset($request->paid)){
+        if (isset($request->paid)) {
             $paid = 1;
         } else {
             $paid = 0;
@@ -133,11 +133,19 @@ class BookingController extends Controller
 
         $phone = $_POST['phone'];
 
-        DB::transaction(function () use ($timeOrder, $room, $strTime, $request, $totalSumm, $paid, $phone) {
+        $shopName = "";
+        if (isset($_POST['shop_type']) && !empty($_POST['shop_type'])) {
+            $shop = App\Shop::find($_POST['shop_type']);
+            if (isset($shop)) {
+                $shopName = $shop->name;
+            }
+        }
+
+        DB::transaction(function () use ($timeOrder, $room, $strTime, $request, $totalSumm, $paid, $phone, $shopName) {
             $order = Order::create([
                 'type' => $_POST['type'],
                 'room' => 1,
-                'name' =>  $_POST['name'],
+                'name' => $_POST['name'],
                 'phone' => $_POST['phone'],
                 'email' => $_POST['email'],
                 'description' => $_POST['description'],
@@ -145,7 +153,8 @@ class BookingController extends Controller
                 'total_summ' => $totalSumm,
                 'user_id' => 0,
                 'str_text' => $strTime,
-                'is_paid' => $paid
+                'is_paid' => $paid,
+                'shop' => $shopName
             ]);
             $arrayInsert = [];
             foreach ($timeOrder as $val) {
@@ -175,11 +184,11 @@ class BookingController extends Controller
         $strTime = "";
         $totalSumm = 0;
         foreach ($timeOrder as $val) {
-            $strTime = $strTime . date('Y-m-d: H ', $val) /*. "-" . date('H', strtotime("+1 hour", $val)) */. "<br>";
+            $strTime = $strTime . date('Y-m-d: H ', $val) /*. "-" . date('H', strtotime("+1 hour", $val)) */ . "<br>";
             $totalSumm += $this->getTimeCost($val, $request->input('type'));
         }
 
-        if(isset($request->paid)){
+        if (isset($request->paid)) {
             $paid = 1;
         } else {
             $paid = 0;
@@ -301,17 +310,26 @@ class BookingController extends Controller
         $weekIs = Session::get('weekIs');
         $prevWeek = strtotime('-1 week', $weekIs);
 
-
         list($yearIs, $monthIsStr) = $this->getMonthYear($prevWeek);
 
         list($days, $nowDay) = $this->getDays($prevWeek);
-
 
         $week = [];
 
         return $this->timeTable($prevWeek, $week, $timeBook, $monthIsStr, $yearIs, $days, $nowDay, $timeBookPaid);
 
 
+    }
+
+
+    public function getTimeColor(Request $request)
+    {
+        $times = DB::select('select t.time as time, o.type as type from times as t join orders as o on(t.order_id = o.id) where t.is_paid = 0 and t.room_id = ' . 1);
+        $timeColor = [];
+        foreach ($times as $t) {
+            $timeColor[$t->time] = $t->type;
+        }
+        return response()->json($timeColor);
     }
 
     /**
@@ -509,39 +527,20 @@ class BookingController extends Controller
     private function getTimeCost($data, $typeBook)
     {
         $dayIs = date('l', $data);
-
         $cost = 0;
-        /*if ($typeBook == 'child') {
-            $cost = 50;
-        }
-        if ($typeBook == 'adult') {
-            $cost = 65;
-        }*/
-
-        if(isset($_POST['hol_type'])){
+        if (isset($_POST['hol_type'])) {
             $hol = App\Holiday::find($_POST['hol_type']);
         } else {
             $hol = App\Holiday::find($_GET['hol_type']);
         }
-        
 
-        if(isset($_POST['timeList'])){
+
+        if (isset($_POST['timeList'])) {
             $cost = $hol->cost * count($_POST['timeList']);
         } else {
             $cost = $hol->cost;
         }
 
-
-       /* if ($typeBook == 'rent') {
-            $cost = 650;
-        }*/
-
-        /*if ($dayIs == 'Saturday' || $dayIs == 'Sunday' || $dayIs == 'Friday') {
-            $cost = $cost + 50;
-            return $cost;
-        } else {
-            return $cost;
-        }*/
         return $cost;
     }
 
@@ -551,19 +550,9 @@ class BookingController extends Controller
      */
     private function timeUse($timeOrder, $v, $forFoom)
     {
-        /*if ($forFoom == "room-1"){
-            $room = 1;
-        } elseif($forFoom == "room-2"){
-            $room = 2;
-        } elseif($forFoom == "room-3"){
-            $room = 3;
-        } elseif($forFoom == "room-4"){
-            $room = 4;
-        }*/
 
         $room = 1;
-        $times = DB::select('select time from times WHERE room_id = ' .$room);
-
+        $times = DB::select('select time from times WHERE room_id = ' . $room);
         $time_use = false;
         foreach ($times as $time) {
             if (in_array($time->time, $timeOrder)) {
@@ -580,14 +569,19 @@ class BookingController extends Controller
 
     public function selectType(Request $request)
     {
-        $types = App\Holiday::where('options', '=', $request->type)->get();
+        if ($request->type == 'slut') {
+            $reqType = 'salute';
+        } else {
+            $reqType = $request->type;
+        }
+        $types = App\Holiday::where('options', '=', $reqType)->get();
         return response()->json($types);
     }
 
     public function delete(Request $request)
     {
         $hol = App\Holiday::find($request->id);
-        if(isset($hol)){
+        if (isset($hol)) {
             $hol->delete();
         }
         return response()->json('delete');

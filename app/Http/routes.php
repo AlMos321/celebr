@@ -59,3 +59,14 @@ Route::post('/order/delete', 'ProfileNotesController@delete');
 Route::get('/delivering', 'DeliveringController@index');
 Route::post('/delivering/phone', 'DeliveringController@deliveryPhone');
 Route::post('/delivering/email', 'DeliveringController@deliveryEmail');
+
+
+Route::get('/time/color', 'BookingController@getTimeColor');
+
+
+Route::get('/shops', 'ShopsController@index');
+Route::post('/load/holidays', 'ShopsController@loadHolidays');
+Route::post('/create/shop', 'ShopsController@create');
+Route::post('/change/shop', 'ShopsController@changeShop');
+Route::post('/delete/shop', 'ShopsController@delete');
+Route::post('/get/shop/holiday', 'ShopsController@getShopByHolidays');

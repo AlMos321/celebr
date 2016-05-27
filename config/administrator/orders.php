@@ -7,39 +7,41 @@ return [
      * The display columns
      */
     'columns' => [
-        'type' => [
-            'title' => 'Тип'
-        ],
-        'room' => [
-            'title' => 'Зал'
-        ],
-        'id' => [
-            'title' => 'Время и дати бронирования',
-            'output' => function ($value){
-                $time = DB::select('select * from times where order_id = '. $value);
-
-                $strTime = "";
-                foreach ($time as $val) {
-                    $strTime = $strTime . date('Y-m-d: H ', $val->time) . "-" . date('H', strtotime("+1 hour", $val->time)) . "<br>";;
-                }
-                return $strTime;
-            }
-        ],
         'name' => [
             'title' => 'Имя'
         ],
         'email' => [
             'title' => 'Email'
         ],
+        'type' => [
+            'title' => 'Тип'
+        ],
+        'shop' => [
+            'title' => 'Заклад'
+        ],
+        'id' => [
+            'title' => 'Дата бронирования',
+            'output' => function ($value){
+                $time = DB::select('select * from times where order_id = '. $value);
+
+                $strTime = "";
+                foreach ($time as $val) {
+
+                    $strTime = $strTime . date('Y-m-d: H ', strtotime('+1 hour', $val->time)) /*. "-" . date('H', strtotime("+1 hour", $val->time))*/ . "<br>";;
+                }
+                return $strTime;
+            }
+        ],
+
         'description' => [
             'title' => 'Примечания'
         ],
         'phone' => [
             'title' => 'Телефон',
         ],
-        'card_number' => [
+       /* 'card_number' => [
             'title' => 'Дисконт'
-        ],
+        ],*/
         'total_summ' => [
             'title' => 'Сумма к оплате'
         ],
@@ -59,6 +61,18 @@ return [
      * The editable fields
      */
     'edit_fields' => [
+        'email' => [
+            'title' => 'email',
+            'type' => 'text',
+        ],
+        'description' => [
+            'title' => 'Примечание',
+            'type' => 'text',
+        ],
+        'phone' => [
+            'title' => 'Телефон',
+            'type' => 'text',
+        ],
         'user_id' => [
             'title' => 'Позльзователь',
             'type' => 'text',
@@ -75,22 +89,11 @@ return [
             'title' => 'Имя',
             'type' => 'text',
         ],
-        'email' => [
-            'title' => 'email',
-            'type' => 'text',
-        ],
-        'description' => [
-            'title' => 'Примечание',
-            'type' => 'text',
-        ],
-        'phone' => [
-            'title' => 'Телефон',
-            'type' => 'text',
-        ],
-        'card_number' => [
+
+       /* 'card_number' => [
             'title' => 'Дисконт',
             'type' => 'text',
-        ],
+        ],*/
         'total_summ' => [
             'title' => 'Сумма к оплате',
             'type' => 'text',

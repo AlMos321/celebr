@@ -1,7 +1,9 @@
 @extends('layouts.main_pattern')
 
 @section('content')
-    <button type="button" id="add_employe" class="btn btn-primary">Додати свято</button>
+    @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
+        <button type="button" id="add_employe" class="btn btn-primary">Додати свято</button>
+    @endif
     <table class="table" style="background-color: #05B2D2">
         <caption>Таблиця свят.</caption>
         <thead>
@@ -18,7 +20,11 @@
                 <td style="cursor: pointer;" onclick="changeHol({{$hol->id}})">{{$hol->name}}</td>
                 <td>{{$hol->description}}</td>
                 <td>{{$hol->cost}}</td>
-                <td onclick="dellHol({{$hol->id}})"><span style="cursor: pointer;" class="glyphicon glyphicon-remove"></span></td>
+                <td onclick="dellHol({{$hol->id}})">
+                    @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
+                        <span style="cursor: pointer;" class="glyphicon glyphicon-remove"></span>
+                    @endif
+                </td>
             </tr>
         @endforeach
         </tbody>
@@ -57,7 +63,9 @@
                             <label>Опис</label>
                             <textarea class="form-control" id="description" name="description" rows="10"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-default">Сохранить</button>
+                        @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
+                            <button type="submit" class="btn btn-default">Сохранить</button>
+                        @endif
                     </form>
 
                 </div>

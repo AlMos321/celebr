@@ -21,7 +21,7 @@
 
 @include('layouts.navigation')
 
-<body class="booking" style="background-color: #E2C5C5; background-image: url('/img/bg.jpg')">
+<body class="booking" style="background-color: #E2C5C5;/* background-image: url('/img/bg.jpg')*/">
 
 <div class="wrap">
 

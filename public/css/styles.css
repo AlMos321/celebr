@@ -1566,3 +1566,7 @@ input[type="checkbox"]:checked + label:before{
 	display: inline-block;
 	margin: 0 10px 15px;
 }
+
+.childType{
+	background: yellow;
+}

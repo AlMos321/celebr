@@ -20,7 +20,9 @@ $("#order_form").submit(function (event) {
                 //update time table
                 update();
 
-                $('.days-field').removeClass('fadeIn').addClass('fadeOut');
+                alert('Заявка прийнята!!!')
+
+                /*$('.days-field').removeClass('fadeIn').addClass('fadeOut');
                 $('.day-nav ul').removeClass('fadeInDown').addClass('fadeOut');
                 setTimeout(function () {
                     $('.days-field').removeClass('fadeOut').addClass('fadeIn');
@@ -29,7 +31,7 @@ $("#order_form").submit(function (event) {
 
                 $('.modal-backdrop').fadeIn(700);
                 $('.booking-modal').addClass('active');
-                $('.error').addClass('hide');
+                $('.error').addClass('hide');*/
             } else {
                 if (typeof  data.name !== 'undefined') {
                     $('.error-name').removeClass('hide')
@@ -80,6 +82,7 @@ $("#order_form").submit(function (event) {
 function cancelSetting() {
     $('input:checkbox').each(function (i, elem) {
         $(this).next('label').removeClass('without-pay');
+        $(this).next('label').css("background", "");
         $(this).next('label').removeClass('paid');
         $(this).attr('checked', false);
         document.getElementById($(this).attr('id')).disabled = false;
@@ -288,10 +291,35 @@ function update(idRoom) {
 
             settingsTime(data);
 
+            getTimeColor();
         }
 
     });
 }
+
+
+function getTimeColor() {
+    $.ajax({
+        url: '/time/color',  // указываем URL
+        type: "get",
+        data: {room: room},
+        success: function (data, textStatus) {
+            $.each(data, function(index, value){
+                if(value == 'chil'){
+                    id = $("input[name='"+index+"']" ).attr('id');
+                    $("label[for='"+id+"']" ).css("background", "yellow");
+                }
+                if(value == 'adu'){
+                    id = $("input[name='"+index+"']" ).attr('id');
+                    $("label[for='"+id+"']" ).css("background", "green");
+                }
+            });
+            //console.log(data)
+        }
+
+    });
+}
+
 
 function changePanelBooking(){
 
@@ -346,10 +374,12 @@ $('input:checkbox').change(function () {
 
 $('.arrows.right').click(function (event) {
     getNext();
+    //getTimeColor();
 });
 
 $('.arrows.left').click(function (event) {
     getPrevious();
+    //getTimeColor();
 });
 
 
@@ -367,6 +397,8 @@ function getNext() {
             settingsTime(data);
 
             userSelect();
+
+            getTimeColor();
         }
 
 
@@ -381,12 +413,15 @@ function getPrevious() {
         url: '/booking/get-prev-time',  // указываем URL
         type: "get",
         success: function (data, textStatus) {
+            console.log(data)
 
             recordDataCalendar(data);
 
             settingsTime(data);
 
             userSelect();
+
+            getTimeColor();
         }
 
     });

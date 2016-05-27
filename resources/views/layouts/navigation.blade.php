@@ -15,10 +15,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li {{--class="active"--}}><a href="/">Послуги <span class="sr-only">(current)</span></a></li>
+                <li><a href="/">Послуги <span class="sr-only">(current)</span></a></li>
+                @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
                 <li><a href="/employe">Працівники</a></li>
+                @endif
                 <li><a href="/holidays">Список послуг</a></li>
+                <li><a href="/shops">Список доступних закладів</a></li>
+                @if(\Illuminate\Support\Facades\Auth::check())
                 <li><a href="/personal-data">Особистий кабінет</a></li>
+                @endif
+                @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
+                    <li><a href="/admin">Адміністративна панель</a></li>
+                @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
