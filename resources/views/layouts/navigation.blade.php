@@ -30,7 +30,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/logout">Вихід</a></li>
+                <li><a href="/logout">Вихід(Вхід)</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

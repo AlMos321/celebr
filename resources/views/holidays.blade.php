@@ -48,7 +48,7 @@
                             <input type="text" class="form-control" id="name" name="name" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label>Ціна(за день)</label>
+                            <label>Ціна(за годину)</label>
                             <input type="text" class="form-control" id="cost" name="cost" placeholder="">
                         </div>
                         <div class="form-group">

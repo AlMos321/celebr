@@ -20,18 +20,14 @@ $("#order_form").submit(function (event) {
                 //update time table
                 update();
 
-                alert('Заявка прийнята!!!')
+                if (data == "okey"){
+                    alert('Заявка прйнята!!! Наш менеджер скоро зателефонує вам.');
+                } else {
+                    alert('Заказ оформлен.');
+                }
 
-                /*$('.days-field').removeClass('fadeIn').addClass('fadeOut');
-                $('.day-nav ul').removeClass('fadeInDown').addClass('fadeOut');
-                setTimeout(function () {
-                    $('.days-field').removeClass('fadeOut').addClass('fadeIn');
-                    $('.day-nav ul').removeClass('fadeOut').addClass('fadeInDown');
-                }, 800);
 
-                $('.modal-backdrop').fadeIn(700);
-                $('.booking-modal').addClass('active');
-                $('.error').addClass('hide');*/
+                
             } else {
                 if (typeof  data.name !== 'undefined') {
                     $('.error-name').removeClass('hide')
@@ -256,6 +252,7 @@ function settingsTime(data) {
 
 
     val = data['timeBookPaid'];
+    val = [];
     for (var i = 0; i < val.length; i++) {
         val[i] = Number(val[i]);
     }
@@ -374,12 +371,10 @@ $('input:checkbox').change(function () {
 
 $('.arrows.right').click(function (event) {
     getNext();
-    //getTimeColor();
 });
 
 $('.arrows.left').click(function (event) {
     getPrevious();
-    //getTimeColor();
 });
 
 

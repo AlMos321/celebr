@@ -27,7 +27,9 @@ return [
                 $strTime = "";
                 foreach ($time as $val) {
 
-                    $strTime = $strTime . date('Y-m-d: H ', strtotime('+1 hour', $val->time)) /*. "-" . date('H', strtotime("+1 hour", $val->time))*/ . "<br>";;
+                   /* $strTime = $strTime . date('Y-m-d: H ', strtotime('+1 hour', $val->time)) . "-" . date('H', strtotime("+1 hour", $val->time)) . "<br>";*/
+
+                    $strTime = $strTime . date('Y-m-d: H ', $val->time) . "-" . date('H', strtotime("+1 hour", $val->time)) . "<br>";
                 }
                 return $strTime;
             }

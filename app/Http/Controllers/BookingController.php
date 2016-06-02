@@ -45,6 +45,27 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        if(Auth::check() && Auth::User()->id != 1){
+            $shop = App\Shop::find($_POST['shop_type']);
+            if(isset($shop)){
+                $shop = $shop->name;
+            } else {
+                $shop = "";
+            }
+            App\UserOrder::create([
+                'type' => $_POST['type'],
+                'room' => 1,
+                'time' => $_POST['time_user'],
+                'name' => $_POST['name'],
+                'phone' => $_POST['phone'],
+                'shop' =>  $shop
+            ]);
+            return response()->json('okey');
+        }
+
+
         $timeRequest = $request->input('timeList');
         $timeOrder = [];
 
@@ -121,9 +142,10 @@ class BookingController extends Controller
         $strTime = "";
         $totalSumm = 0;
         foreach ($timeOrder as $val) {
-            $strTime = $strTime . date('Y-m-d: H ', $val) /*. "-" . date('H', strtotime("+1 hour", $val)) */ . "<br>";
-            $totalSumm += $this->getTimeCost($val, $request->input('type'));
+            $strTime = $strTime . date('Y-m-d: H ', $val) . "-" . date('H', strtotime("+1 hour", $val))  . "<br>";
+           /* $totalSumm += $this->getTimeCost($val, $request->input('type'));*/
         }
+        $totalSumm = $this->getTimeCost($val, $request->input('type'));
 
         if (isset($request->paid)) {
             $paid = 1;
