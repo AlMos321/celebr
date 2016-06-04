@@ -529,7 +529,7 @@
                 </fieldset>
                 @else
                     <label>Вибаріть приблизний час</label>
-                    <select class="form-control" id="hol_type" name="time_user" style="width: 25%">
+                    <select class="form-control" id="hol_type" name="time_user" style="width: 25%; margin: 0 auto;">
                             <option id="" value="00">00</option>
                             <option id="" value="01">01</option>
                             <option id="" value="">02</option>
