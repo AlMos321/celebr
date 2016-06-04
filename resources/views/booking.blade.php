@@ -567,7 +567,7 @@
 
                 <section>
                     @if(!Auth::check())
-                        <div style="text-align: center; color: red;"><p>Для того щоб залишити заявку треба <a href="/login">ввійти</a> або <a href="/register">зареєструватись</a></p></div>
+                        {{--<div style="text-align: center; color: red;"><p>Для того щоб залишити заявку треба <a href="/login">ввійти</a> або <a href="/register">зареєструватись</a></p></div>--}}
                     @endif
                     <section class="contact-form" style="width: 30%; margin: 0 auto">
                         <ul>
@@ -598,7 +598,7 @@
 
 
                     <footer class="submit-section">
-                        <button class="btn blue" id="booking-btn1"  @if(!Auth::check()) disabled @endif>Заказать</button>
+                        <button class="btn blue" id="booking-btn1"  @if(!Auth::check()) {{--disabled--}} @endif>Заказать</button>
                     </footer>
                 </section>
             </section>

@@ -47,7 +47,7 @@ class BookingController extends Controller
     {
 
 
-        if(Auth::check() && Auth::User()->id != 1){
+        if(!Auth::check() || Auth::check() && Auth::User()->id != 1){
             $shop = App\Shop::find($_POST['shop_type']);
             if(isset($shop)){
                 $shop = $shop->name;
