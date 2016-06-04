@@ -19,7 +19,7 @@
                     </ul>
                 </fieldset>
 
-                <fieldset class="rooms-option" style="width: 25%">
+                <fieldset class="rooms-option" style="width: 25%;  text-align: center; margin: 0 auto;">
                     <h2>Вибір послуги</h2>
                     <select class="form-control" id="hol_type" name="hol_type">
                         @foreach($holidays as $hol)
