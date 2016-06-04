@@ -27,7 +27,7 @@
 </head>
 @include('layouts.navigation')
 
-<body class="booking" style="background-color: #E2C5C5;">
+<body class="booking" {{--style="background-color: #E2C5C5;"--}}>
 
 <div class="wrap">
 
@@ -35,7 +35,7 @@
         @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
             <button type="button" id="add_employe" class="btn btn-primary">Додати працівника</button>
         @endif
-        <table class="table" style="background-color: #05B2D2">
+        <table class="table" style="background-color: white">
             <caption>Таблиця працівників.</caption>
             <thead>
             <tr>

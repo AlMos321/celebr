@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Організація свят</a>
+            <a class="navbar-brand" href="/">Організація свят</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,7 +30,12 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/logout">Вихід(Вхід)</a></li>
+                @if(Auth::check())
+                <li><a href="/logout">Вихід</a></li>
+                @endif
+                    @if(!Auth::check())
+                        <li><a href="/login">Вхід</a></li>
+                    @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

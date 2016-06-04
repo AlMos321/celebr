@@ -19,7 +19,7 @@
                     </ul>
                 </fieldset>
 
-                <fieldset class="rooms-option">
+                <fieldset class="rooms-option" style="width: 25%">
                     <h2>Вибір послуги</h2>
                     <select class="form-control" id="hol_type" name="hol_type">
                         @foreach($holidays as $hol)
@@ -563,7 +563,7 @@
                     @if(!Auth::check())
                         <div style="text-align: center; color: red;"><p>Для того щоб залишити заявку треба <a href="/login">ввійти</a> або <a href="/register">зареєструватись</a></p></div>
                     @endif
-                    <section class="contact-form" style="width: 50%; margin: 0 auto">
+                    <section class="contact-form" style="width: 30%; margin: 0 auto">
                         <ul>
 
                                 <div class="error error-name hide"></div>

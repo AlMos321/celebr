@@ -4,7 +4,7 @@
     @if(\Illuminate\Support\Facades\Auth::check() && Auth::User()->is_admin == 1)
         <button type="button" id="add_employe" class="btn btn-primary">Додати свято</button>
     @endif
-    <table class="table" style="background-color: #05B2D2">
+    <table class="table" style="background-color: white">
         <caption>Таблиця свят.</caption>
         <thead>
         <tr>
