@@ -528,8 +528,14 @@
                     </section>
                 </fieldset>
                 @else
-                    <label style="text-align: center;">Вибаріть приблизний час</label>
-                    <select class="form-control" id="hol_type" name="time_user" style="width: 25%; margin: 0 auto;">
+                    {{--<label style=" margin: 0 auto; text-align: center;">Вибаріть приблизний час</label>--}}
+                <br>
+                    <h2 style="
+                    text-align: center; font-family: inherit;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    color: inherit;">Вибаріть приблизний час</h2>
+                    <select class="form-control" id="hol_type" name="time_user" style="width: 25%; margin: 0 auto; text-align: center;">
                             <option id="" value="00">00</option>
                             <option id="" value="01">01</option>
                             <option id="" value="">02</option>
